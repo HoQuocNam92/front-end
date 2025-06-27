@@ -47,6 +47,7 @@ export const ProductProvider = ({
       const response = await axiosInstance.get(
         `/products?pageSize=${pageSize}&page=${page}`,
       );
+      console.log("Check response", response.data)
       if (response.status === 200) {
         const hasMore = response.data.hasMore;
         const formattedData = response.data.products.map((item) => ({
