@@ -21,7 +21,7 @@ const Profile = lazy(() => import("@components/Profile/Profile"));
 const Banner = lazy(() => import("@components/Banner/Banner"));
 const Account = lazy(() => import("@pages/Account/Account"));
 
-const Home = lazy(() => import("@pages/home/Home"));
+const Home = lazy(() => import("@pages/Home/Home"));
 const About = lazy(() => import("@components/About/About"));
 
 
