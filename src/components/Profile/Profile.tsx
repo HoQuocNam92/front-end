@@ -1,29 +1,29 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./Style.module.scss";
 import { Link } from "react-router-dom";
 import dayjs from 'dayjs';
 import { UserContext } from '@context/UserContext';
- 
+
 export default function Profile() {
-  const {updateProfile , user } = useContext(UserContext);
-  const [userName , setUserName] = useState<string >(user.userName)
-  const [email , setEmail] = useState<string>(user.email)
-  const [phone , setPhone] = useState<string>(user.phone)
-  const [gender , setGender] = useState<string >(user.gender)
-  console.log({userName , email , phone,gender})
-  const [dobs , setDob] = useState<string >("");
-  const updateProfiles = ()=>{
+  const { updateProfile, user } = useContext(UserContext);
+  const [userName, setUserName] = useState<string>(user.userName)
+  const [email, setEmail] = useState<string>(user.email)
+  const [phone, setPhone] = useState<string>(user.phone)
+  const [gender, setGender] = useState<string>(user.gender)
+  console.log({ userName, email, phone, gender })
+  const [dobs, setDob] = useState<string>("");
+  const updateProfiles = () => {
     const dob = dayjs(dobs, "YYYY-MM-DD").format("DD/MM/YYYY");
 
-    updateProfile({userName , email ,  phone , dob , gender})
-   }
-  useEffect(()=>{
-    if(user.dob){
-     const dobCL = dayjs(user.dob,"DD/MM/YYYY").format("YYYY-MM-DD");
-  setDob(dobCL)
+    updateProfile({ userName, email, phone, dob, gender })
+  }
+  useEffect(() => {
+    if (user.dob) {
+      const dobCL = dayjs(user.dob, "DD/MM/YYYY").format("YYYY-MM-DD");
+      setDob(dobCL)
     }
-  },[user.dob])
-  
+  }, [user.dob])
+
   const {
     Container,
     Header,
@@ -47,7 +47,7 @@ export default function Profile() {
         <div className={SideBar}>
           <div className={Logo}>
             <img src="/images/users.png" alt="user" />
-            <h2>{user.name}</h2>
+            <h2>{user.userName}</h2>
           </div>
           <ul className={Menu}>
             <li>
@@ -94,32 +94,32 @@ export default function Profile() {
           </div>
           <div className={FormProfile}>
             <div className={InfoProfile}>
-              
+
               <div className={info}>
                 <label className={Title} htmlFor="">
-                  Tên 
+                  Tên
                 </label>
-                <input type="text" onChange={(e)=>(setUserName(e.target.value))} value={userName} />
+                <input type="text" onChange={(e) => (setUserName(e.target.value))} value={userName} />
               </div>
               <div className={info}>
                 <label className={Title} htmlFor="">
                   Email
                 </label>
-                <input type="text" onChange={(e)=>(setEmail(e.target.value))} value={email} />
+                <input type="text" onChange={(e) => (setEmail(e.target.value))} value={email} />
 
               </div>
               <div className={info}>
                 <label className={Title}  >
                   Số điện thoại
                 </label>
-                <input type="text" onChange={(e)=>(setPhone((e.target.value)))} value={phone} />
+                <input type="text" onChange={(e) => (setPhone((e.target.value)))} value={phone} />
               </div>
               <div className={info}>
                 <label className={Title} htmlFor="">
                   Giới tính
                 </label>
                 <div className={Gender}>
-                  <input id="male" name="gender" onClick={()=>(setGender("male"))} checked={gender ==="male"} value="male" type="radio" />
+                  <input id="male" name="gender" onClick={() => (setGender("male"))} checked={gender === "male"} value="male" type="radio" />
                   <label htmlFor="male">Nam</label>
                   <input
                     id="female"
@@ -127,10 +127,10 @@ export default function Profile() {
                     value="female"
                     checked={gender === "female"}
                     type="radio"
-                    onClick={()=>(setGender("female"))} 
+                    onClick={() => (setGender("female"))}
                   />
                   <label htmlFor="female">Nữ</label>
-                  <input id="other" name="gender" onClick={()=>(setGender("other"))} checked={gender === "other"} value="other" type="radio" />
+                  <input id="other" name="gender" onClick={() => (setGender("other"))} checked={gender === "other"} value="other" type="radio" />
                   <label htmlFor="other">Khác</label>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function Profile() {
                 <label className={Title} htmlFor="">
                   Ngày sinh
                 </label>
-                <input type="date"  value={dobs}  onChange={(e) => setDob(e.target.value)} />
+                <input type="date" value={dobs} onChange={(e) => setDob(e.target.value)} />
               </div>
               <div className={Btn}>
                 <button onClick={updateProfiles}>Lưu</button>

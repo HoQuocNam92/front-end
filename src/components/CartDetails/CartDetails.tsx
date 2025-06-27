@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Style.module.scss";
 import { CartContext } from "@context/CartContext";
 import clsx from "clsx";
-import { Link, useNavigate } from "react-router-dom";
-import { style } from "@mui/system";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 function CartDetails() {
   const { cart, total, handleDelete, handleAddCart } = React.useContext(

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Style.module.scss";
 function Place() {
   const { Container, Place, Content, Location } = styles;

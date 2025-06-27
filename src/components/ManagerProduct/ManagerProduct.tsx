@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import {
   Button,
   TextField,
-  Table,
   TableBody,
   TableCell,
   TableContainer,
@@ -15,7 +14,6 @@ import {
 import { Edit, Delete } from "@mui/icons-material";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "@context/AuthContext";
 
 const ManagerProduct = () => {
   const Token = localStorage.getItem("accessToken");
@@ -23,6 +21,7 @@ const ManagerProduct = () => {
   const user = JSON.parse(Users);
 
   const [isAuthorized, setIsAuthorized] = useState(null);
+  console.log(isAuthorized)
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
   const [imageFile, setImageFile] = useState(null);

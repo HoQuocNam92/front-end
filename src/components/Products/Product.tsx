@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styles from "./Style.module.scss";
 import { Link } from "react-router-dom";
 import { ProductContext } from "@context/ProductContext";
@@ -29,7 +29,7 @@ const Product = function product() {
 
 
   } = styles;
-  const handleWishListBtn = (id) => { };
+  const handleWishListBtn = () => { };
 
   const handleLoadMore = () => {
     setPage(page + 1);
@@ -51,7 +51,7 @@ const Product = function product() {
                   <img loading="lazy" src={item.image_url} alt="item" />
                   <button
                     className={wist_list_btn}
-                    onClick={() => handleWishListBtn(item.id)}
+                    onClick={() => handleWishListBtn()}
                   >
                     <i className="fa-regular fa-heart"></i>
                   </button>

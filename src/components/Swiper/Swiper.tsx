@@ -3,7 +3,7 @@ import { ProductContext } from "@context/ProductContext";
 import style from "./Swiper.module.scss";
 import { Link } from "react-router-dom";
 import { CartContext } from "@context/CartContext";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const getRandomItems = (list: string[], count: number) => {
   const Shuffed = [...list].sort(() => 0.5 - Math.random());

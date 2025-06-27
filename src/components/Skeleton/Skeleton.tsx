@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './Skeleton.module.scss'
 import clsx from 'clsx';
 function Skeleton({ value }) {

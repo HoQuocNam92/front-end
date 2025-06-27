@@ -1,14 +1,6 @@
-import { useAuth } from "@context/AuthContext";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-// Kiểu dữ liệu User
-type User = {
-  id: number;
-  name: string;
-  email: string;
-  role: "user" | "admin";
-};
 
 const role = ["user", "admin"];
 const Dashboard: React.FC = () => {

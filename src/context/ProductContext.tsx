@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axiosInstance from "@utils/axiosInstance";
 
-import axios from "axios";
 interface AuthContextType {
   productDetail: TypeProduct[];
   product: TypeProduct[];
@@ -42,21 +41,7 @@ export const ProductProvider = ({
     }
   }, [id, product]);
 
-  const handleWishListBtn = (id) => {
-    const fectData = async () => {
-      try {
-        const response = await axios.post(
-          `http://localhost:8080/addToWishlist/${id}`,
-        );
-        if (response.status === 200) {
-          alert("Thêm vào yêu thích thành công!");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fectData();
-  };
+
   const fetchData = async () => {
     try {
       const response = await axiosInstance.get(
